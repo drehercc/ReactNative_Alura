@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet, Text } from "react-native";
-
+import { FlatList,StyleSheet, Text, View } from "react-native";
 import { loadProducers } from "../../../services/loadData";
+import Producer from "./Producer";
 
 export default function Producers({top : Top}) {
 
@@ -24,13 +24,13 @@ export default function Producers({top : Top}) {
     }
 
 
-
-    return <FlatList
+    return <View>
+    <FlatList
     data={list}
-    renderItem={({item : {name}})=><Text>{name}</Text>}
-    keyExtractor={({name})=>name}
+    renderItem={({item}) => <Producer {...item} />}
+    keyExtractor={(item)=>item.name}
     ListHeaderComponent={listTop}/>
-
+    </View>
 }
 
 const styles = StyleSheet.create({
