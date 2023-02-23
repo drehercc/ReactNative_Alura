@@ -1,20 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import Home from './src/screens/Home';
 
 function App(){
 
-  return <SafeAreaView>
+  return <SafeAreaView style = {styles.screen}>
     <Home/>
   </SafeAreaView>
   
 }
+
+const styles = StyleSheet.create({
+  screen : {
+    flex : 1
+  }
+
+});
+
 
 export default App;

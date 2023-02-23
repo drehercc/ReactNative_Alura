@@ -28,7 +28,7 @@ class Top extends React.Component{
     }
 
     render(){
-        return <View styles = {styles.top}>
+        return <View style = {styles.top}>
         <Image source = {logo} style = {styles.image}/>
             <Text style = {styles.welcome}>{this.state.top.welcome}</Text>
             <Text style = {styles.subtitle}>{this.state.top.subtitle}</Text>
@@ -54,11 +54,13 @@ const styles = StyleSheet.create({
         marginTop : 24,
         fontSize : 26,
         lineHeight : 42,
-        fontWeight : 'bold'
+        fontWeight : 'bold',
+        color : '#464646'
     },
     subtitle : {
         fontSize : 16,
-        lineHeight : 26
+        lineHeight : 26,
+        color : '#A3A3A3'
     }
 }
 )
