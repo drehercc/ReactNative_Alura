@@ -16,31 +16,31 @@ const producers = {
         {
             name : 'Green',
             image : green,
-            distance : `${genereteRandomNumber(1,500)}m`,
+            distance : genereteRandomNumber(1,500),
             rating : genereteRandomNumber(1,5)
         },
         {
             name : 'Salad',
             image : salad,
-            distance : `${genereteRandomNumber(1,500)}m`,
+            distance : genereteRandomNumber(1,500),
             rating : genereteRandomNumber(1,5)
         },
         {
             name : 'Grow',
             image : grow,
-            distance : `${genereteRandomNumber(1,500)}m`,
+            distance : genereteRandomNumber(1,500),
             rating : genereteRandomNumber(1,5)
         },
         {
             name : 'Jenny Jack Farm',
             image : jennyJack,
-            distance : `${genereteRandomNumber(1,500)}m`,
+            distance : genereteRandomNumber(1,500),
             rating : genereteRandomNumber(1,5)
         },
         {
             name : 'Potager',
             image : potager,
-            distance : `${genereteRandomNumber(1,500)}m`,
+            distance : genereteRandomNumber(1,500),
             rating : genereteRandomNumber(1,5)
         },
     ]
