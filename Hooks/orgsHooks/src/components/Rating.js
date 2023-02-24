@@ -1,35 +1,52 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import Star from "./Star";
 
-import ratingStar from "../assets/estrela.png";
-import emptyRatingStar from "../assets/estrelaCinza.png";
+
 
 
 export default function Rating({
     //This notation always bothers me, but the name on the right is the one that will be used in the function.
-    quantity : oldQuantity,
+    quantity: oldQuantity,
     editable = false,
     big = false,
 }
-){
-const styles = stylesFunction(big);
-return <View style = {styles.stars}>
-        <Image source = {ratingStar} style = {styles.star}/>
-        <Image source = {ratingStar} style = {styles.star}/>
-</View>
+) {
+
+    const [quantity, setQuantity] = useState(oldQuantity);
+
+    const RenderStars = () => {
+
+        const starList = [];
+
+        for (let i = 0; i < 5; i++) {
+            starList.push(
+                <Star
+                    key={i}
+                    onPress={() => setQuantity(i + 1)}
+                    disabled={!editable}
+                    filled={i < quantity}
+                    big={big}
+                />
+            );
+        }
+
+        return starList;
+    };
+
+
+
+    return <View style={styles.stars}>
+        <RenderStars />
+    </View>
 
 
 
 }
 
-const stylesFunction = (big) => StyleSheet.create({
-    stars : {
-        flexDirection : "row"
-    },
-    star : {
-        width : big ? 24 : 12,
-        height : big ? 24 : 12,
-        marginRight : 2
+const styles = StyleSheet.create({
+    stars: {
+        flexDirection: "row"
     }
-
 })
+

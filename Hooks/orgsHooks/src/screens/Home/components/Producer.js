@@ -1,22 +1,28 @@
-import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Rating from "../../../components/Rating"
 
 
 export default function Producer({ name, image, distance, rating }) {
-    return <View style = {styles.card}>
+
+    const [selected,setSelected] = useState(false);
+
+    return <TouchableOpacity 
+    style = {styles.card}
+    onPress={()=>setSelected(!selected)}
+    >
         <Image source={image} style = {styles.image} accessibilityLabel={name} />
         <View style = {styles.info}>
             <View>
                 <Text style = {styles.name}>{name}</Text>
-                <Rating quantity={rating}/>
+                <Rating quantity={rating} editable = {selected} big = {selected}/>
             </View>
 
             <Text style = {styles.distance}>{distance}</Text>
         </View>
 
 
-    </View>
+    </TouchableOpacity>
 
 
 
