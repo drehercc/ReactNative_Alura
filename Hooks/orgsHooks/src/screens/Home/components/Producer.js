@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Rating from "../../../components/Rating"
 
 
 export default function Producer({ name, image, distance, rating }) {
 
-    const [selected,setSelected] = useState(false);
 
+
+    //const [selected,setSelected] = useState(false);
+    const [selected,invertSelection] = useReducer(
+    (selected)=>!selected,
+    false
+    );
     return <TouchableOpacity 
     style = {styles.card}
-    onPress={()=>setSelected(!selected)}
+    onPress={invertSelection}
     >
         <Image source={image} style = {styles.image} accessibilityLabel={name} />
         <View style = {styles.info}>
